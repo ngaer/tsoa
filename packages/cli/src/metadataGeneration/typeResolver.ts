@@ -310,6 +310,10 @@ export class TypeResolver {
       }
     }
 
+    if (ts.isIndexedAccessTypeNode(this.typeNode)) {
+      return new TypeResolver(this.typeNode.indexType, this.current, this.typeNode, this.context, this.referencer).resolve();
+    }
+
     if (ts.isParenthesizedTypeNode(this.typeNode)) {
       return new TypeResolver(this.typeNode.type, this.current, this.typeNode, this.context, this.referencer).resolve();
     }
