@@ -682,9 +682,17 @@ export class PrivateModel {
 }
 
 enum MyEnum {
-  OK,
-  KO,
+  OK = 'OK',
+  KO = 'KO',
 }
+const MyEnumObject = {
+  OK: 'OK',
+  KO: 'KO',
+} as const;
+const MyEnumObject2 = {
+  OK: 'OK2',
+  KO: 'KO2',
+} as const;
 
 interface IndexedInterface {
   foo: 'bar';
@@ -723,6 +731,8 @@ export class TestClassModel extends TestClassBaseModel {
   public account: Account;
   public defaultValue2 = 'Default Value 2';
   public enumKeys: keyof typeof MyEnum;
+  public enumValues: typeof MyEnumObject[keyof typeof MyEnumObject];
+  public enumValues2: typeof MyEnumObject2[keyof typeof MyEnumObject];
   public keyInterface?: keyof Model;
   public indexedType?: Indexed[IndexType]['bar'];
   public indexedTypeToInterface?: Indexed['interface'];

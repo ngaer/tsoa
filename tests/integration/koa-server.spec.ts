@@ -1362,6 +1362,8 @@ describe('Koa Server', () => {
     model.stringProperty = 'test';
     model.account = { id: 1234 };
     model.enumKeys = 'KO';
+    model.enumValues = 'KO';
+    model.enumValues2 = 'KO2';
 
     return model;
   }
